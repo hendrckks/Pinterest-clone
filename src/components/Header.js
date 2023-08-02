@@ -69,7 +69,7 @@ const Wrapper = styled.div`
     color: black;
 `
 const LogoWrapper = styled.div`
-    MuiSvgIcon-root {
+    .MuiSvgIcon-root {
         color: #e60023;
         font-size: 32px;
         cursor: pointer;

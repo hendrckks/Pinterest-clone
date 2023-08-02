@@ -136,6 +136,8 @@ const SearchBarWrapper = styled.div`
         outline: none;
     }
 `
-const IconsWrapper = styled.div``
+const IconsWrapper = styled.div`
+    margin-left: 5px;
+`
 
 export default Header;

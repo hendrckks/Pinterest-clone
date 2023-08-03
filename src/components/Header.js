@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import PinterestIcon from '@mui/icons-material/Pinterest';
 import { IconButton } from '@mui/material';
 import styled from 'styled-components';
@@ -8,7 +8,17 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import TextsmsIcon from '@mui/icons-material/Textsms';
 
-const Header = () => {
+
+
+const Header = (props) => {
+    
+    const [input, setInput] = useState("")
+
+    function onSearchSubmit(e) {
+        e.preventDefault();
+        props.onSubmit(input);
+}
+
   return (
     <Wrapper>
         <LogoWrapper>
@@ -28,8 +38,9 @@ const Header = () => {
                    <SearchIcon />
                 </IconButton>
                 <form>
-                    <input type="text" placeholder="search" />
-                    <button type="submit" ></button>
+                    <input type="text" placeholder="search" onChange={(e) => 
+                        setInput(e.target.value)}/>
+                    <button type="submit" onClick={onSearchSubmit}></button>
                 </form>
             </SearchBarWrapper>
         </SearchWrapper>  
@@ -56,7 +67,7 @@ const Styles = styled.div`
     height: 48px;
     min-width: 123px;
     justify-content: center;
-    border-radius: 24px;
+    border-radius: 50px;
     cursor: pointer;
     align-items: center;
     text-align: center;
@@ -83,6 +94,7 @@ const HomeWrapper = styled(Styles)`
         color: white;
         font-weight: 700;
         font-size: 13px;
+        box-shadow: 2px;
     }
 `
 const CreateButton = styled(Styles)`

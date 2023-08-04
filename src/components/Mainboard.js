@@ -2,11 +2,17 @@ import React from 'react'
 import styled from 'styled-components';
 import Pin from './Pin';
 
-const Mainboard = () => {
+const Mainboard = (props) => {
+
+  let {pins} = props;
+
   return (
       <Wrapper>
         <Container>
-          <Pin />
+          {pins.map((pin, i) =>{
+            let { urls } = pin;
+            return <Pin key={i} urls={urls} />
+          })}
         </Container>
       </Wrapper>
   )
@@ -17,14 +23,15 @@ const Wrapper = styled.div`
     height: 100%;
     background-color: white;
     display: flex;
-    margin-top: 15px;
+    margin-top: 20px;
     display: flex;
     justify-content: center;
 
 `
 const Container = styled.div`
-    display: flex;
-    width: 80%
+  column-count: 5;
+  column-gap: 5px;
+    width: 80%;
     background-color: white;
     
 `

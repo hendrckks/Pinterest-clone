@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { React, useEffect, useState } from 'react';
 import unsplash from './api/unsplash';
 import Header from './components/Header';
 import Mainboard from './components/Mainboard';
@@ -32,6 +32,31 @@ function App() {
     })
   }
 
+  const getNewPins = () => {
+    let promises = [];
+    let pinData = [];
+  
+    let pins = ['coffee', 'cars', 'sneakers', 'haircuts', 'watches', 'suits', 'gadgets']; 
+    pins.forEach((pinTerm) => {
+      promises.push(
+        getImages(pinTerm).then((response) => {
+          let results = response.data.results;
+          pinData = pinData.concat(results);
+          pinData.sort(function(a, b) {
+            return 0.5 - Math.random();
+          }); 
+        })
+      );
+    });
+    Promise.all(promises).then(() => {
+      setNewPins(pinData);
+    });
+  };
+  
+
+  useEffect(() => {
+    getNewPins();
+  }, []);
 
   return (
     <div className="App">

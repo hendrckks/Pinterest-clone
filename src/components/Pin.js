@@ -1,20 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-function Pins() {
+function Pin(props) {
+
+  let {urls} = props;
   return (
     <Wrapper>
         <Container>
-            <img src = 'https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80' 
-            alt='pin' />
+            <img src = {urls?.regular} alt="pin" />
         </Container>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-    display: inline-flex;
+    display: inline-flex; 
     padding: 8px;
+   
 
 `
 const Container = styled.div`
@@ -29,7 +31,7 @@ const Container = styled.div`
       width: 100%;
       display: flex;
       object-fit: cover;
-      border-radius: 15px;
+      border-radius: 20px;
       cursor: zoom-in;
       transition: transform 0.3s ease;
 
@@ -40,4 +42,4 @@ const Container = styled.div`
     }
 `
 
-export default Pins;
+export default Pin;

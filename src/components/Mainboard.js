@@ -29,10 +29,28 @@ const Wrapper = styled.div`
 
 `
 const Container = styled.div`
-  column-count: 5;
-  column-gap: 5px;
+    column-count: 5;
+    column-gap: 5px;
     width: 80%;
     background-color: white;
+    display: flex-wrap;
+    max-width: 1260px;
+    margin: 0 auto;
+    
+    @media (min-width: 1200px) {
+      column-count: 5;
+      justify-content: space-between;
+    }
+  
+    @media (min-width: 900px) and (max-width: 1199px) {
+      column-count: 3;
+      justify-content: space-between;
+    }
+  
+    @media (max-width: 899px) {
+      column-count: 2;
+      justify-content: center;
+    }
     
 `
 

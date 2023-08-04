@@ -149,7 +149,10 @@ const SearchBarWrapper = styled.div`
     }
 `
 const IconsWrapper = styled.div`
-    margin-left: 5px;
-`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 5px;
+  gap: 8px;`
 
 export default Header;
